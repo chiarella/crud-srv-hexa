@@ -1,0 +1,12 @@
+# spring-boot-docker/docker-compose.yml
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./01-base.sql:/docker-entrypoint-initdb.d/01-base.sql
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
